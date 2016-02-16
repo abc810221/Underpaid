@@ -24,7 +24,7 @@ angular.module('myApp', ['ngRoute'])
     $http({
         method: 'POST',
         // url: 'http://127.0.0.1:3000',
-        url: 'https://mvp-demo-ted.herokuapp.com/'
+        url: 'https://mvp-demo-ted.herokuapp.com/',
         data: obj
     }).then(function(res){
       $scope.datas = res.data;
