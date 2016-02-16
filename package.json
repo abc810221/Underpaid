@@ -1,10 +1,10 @@
 {
   "name": "test",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -24,5 +24,15 @@
     "querystring": "^0.2.0",
     "request": "^2.69.0",
     "underscore": "^1.8.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abc810221/2016-01-solo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/abc810221/2016-01-solo/issues"
+  },
+  "homepage": "https://github.com/abc810221/2016-01-solo#readme",
+  "description": ""
 }
