@@ -8,7 +8,10 @@ var app = express();
 app.use(express.static(__dirname + '/../client'));
 app.use(cors());
 
-var port = Number(porcess.env.PORT) || 3000
+var port = Number(process.env.PORT) || 3000
+
+
+
 
 app.listen(port);
 
