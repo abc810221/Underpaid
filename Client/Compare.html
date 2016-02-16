@@ -1,9 +1,9 @@
 <div class="jumbotron">
   <div class="container">
     <div class="userinput">
-        <form class='form'>Please type in a job title:
+        <form class='form'>Please type in your job title:
             <input ng-model='input' type="text" id="usertitle">
-            <input ng-model='inputtwo' type="text" id="usersalary">
+            Current Salary: <input ng-model='inputtwo' type="text" id="usersalary">
             <button type="submit" ng-click='fetchone(input, inputtwo)'>Submit</button>
         </form>
     </div>
@@ -20,7 +20,7 @@
       <h4 ng-show="yoursalary">Your currently make: ${{ yoursalary }}</h4><br>
 
       <h2 ng-show=" yoursalary &&  yoursalary<average" >OMG, YOU ARE UNDER PAID!<br>
-      <a class="navbar-brand" href="/#/jobsearch">Click HERE</a> to loook for NEW JOB</h2>
+      <a href="/#/jobsearch">Click HERE</a> to loook for NEW JOB</h2>
 
       <h2 ng-show=" yoursalary &&  yoursalary>average && yoursalary<max" >You are above average!</h2>
       <h2 ng-show=" yoursalary && yoursalary>average && yoursalary>max" >You are making more than most people!</h2></br>
