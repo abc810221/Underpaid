@@ -12,8 +12,6 @@ app.use(cors());
 var port = Number(process.env.PORT) || 3000
 
 
-
-
 app.listen(port);
 
 var defaultCorsHeaders = {
@@ -31,9 +29,9 @@ app.use(function(req, res, next){
 
 app.use(bodyParser.json());
 
-app.get('/', function(req, res){
+// app.get('/', function(req, res){
   
-})
+// })
 
 app.post('/', function(req, res){
   var obj = req.body;
