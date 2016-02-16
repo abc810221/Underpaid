@@ -1,0 +1,29 @@
+<div class="jumbotron">
+              <div class="container">
+                <div class="userinput">
+                    <form class='form'>Please type in a job title:
+                        <input ng-model='input' type="text" id="maininput">
+                        <button type="submit" ng-click='fetch(input)'>Submit</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="container">
+
+              <div class="row">
+
+                <div class="col-md-12">
+                  <h2>Jobs</h2>
+                    <div id="test">
+                      <ul>
+                        <li ng-repeat="data in datas">
+                        <strong>Job Title: </strong>{{ data.JobTitle }}<br>
+                        <strong>Location:</strong> {{ data.Locations }}<br>
+                        <strong>Salary Basis: </strong>{{ data.SalaryBasis }}<br>
+                        <strong>Highest Salary: </strong>{{ data.SalaryMax }}<br> 
+                        <strong>Lowest Salary: </strong>{{ data.SalaryMin }}<br><br>
+                        </li>
+                      </ul>
+                    </div>
+                </div>

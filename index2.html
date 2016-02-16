@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+
+  </head>
+
+
+  <body ng-app="myApp" ng-controller="maincontroller">
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+              <div class="container">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  </button>
+                  <a class="navbar-brand" href="#">MVP</a>
+                </div>
+
+              </div>
+        </nav>
+
+  
+
+
+            <div class="jumbotron">
+              <div class="container">
+                <div class="userinput">
+                    <form class='form'>Please type in a job title:
+                        <input ng-model='input' type="text" id="maininput">
+                        <button type="submit" ng-click='fetch(input)'>Submit</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="container">
+
+              <div class="row">
+
+                <div class="col-md-12">
+                  <h2>Jobs</h2>
+                    <div id="test">
+                      <ul>
+                        <li ng-repeat="data in datas">
+                        <strong>Job Title: </strong>{{ data.JobTitle }}<br>
+                        <strong>Location:</strong> {{ data.Locations }}<br>
+                        <strong>Salary Basis: </strong>{{ data.SalaryBasis }}<br>
+                        <strong>Highest Salary: </strong>{{ data.SalaryMax }}<br> 
+                        <strong>Lowest Salary: </strong>{{ data.SalaryMin }}<br><br>
+                        </li>
+                      </ul>
+                    </div>
+                </div>
+
+
+
+
+            
+
+              <hr>
+
+              <footer>
+            <!--     <p>Made by Ted Hsiao</p> -->
+              </footer>
+            </div>
+
+
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/underscore/underscore-min.js"></script>
+    <script src="./node_modules/backbone/backbone-min.js"></script>
+    <script src="./myapp.js"></script>
+
+  </body>
+</html>
