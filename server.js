@@ -5,7 +5,7 @@ var promise = require('promise');
 var cors = require('cors');
 
 var app = express();
-app.use(express.static(__dirname + '/../client'));
+app.use(express.static(__dirname + '/client'));
 app.use(cors());
 
 var port = Number(process.env.PORT) || 3000
