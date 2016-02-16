@@ -4,14 +4,29 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
-      options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-      },
       build: {
         src: 'myapp.js',
         dest: 'build/factorial.min.js'
       }
+    },
+    nodemon: {
+      dev: {
+        script: 'server.js'
+      }
     }
+  });
+
+  grunt.registerTask('server-dev', function (target) {
+    // Running nodejs in a different process and displaying output on the main console
+    var nodemon = grunt.util.spawn({
+         cmd: 'grunt',
+         grunt: true,
+         args: 'nodemon'
+    });
+    nodemon.stdout.pipe(process.stdout);
+    nodemon.stderr.pipe(process.stderr);
+
+    grunt.task.run([ 'watch' ]);
   });
 
   // Load the plugin that provides the "uglify" task.
@@ -20,5 +35,5 @@ module.exports = function(grunt) {
   // Default task(s).
   grunt.registerTask('default', ['uglify']);
 
-  grunt.registerTask('heroku:production', ['default']);
+  grunt.registerTask('heroku:production', ['default', 'server-dev', 'nodemon']);
 };
