@@ -8,8 +8,9 @@ var app = express();
 app.use(express.static(__dirname + '/../client'));
 app.use(cors());
 
+var port = Number(porcess.env.PORT) || 3000
 
-app.listen(3000);
+app.listen(port);
 
 var defaultCorsHeaders = {
   "Access-Control-Allow-Origin": "*",
