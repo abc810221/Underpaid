@@ -6,7 +6,7 @@ var cors = require('cors');
 
 var app = express();
 app.use(cors());
-app.use(express.static(__dirname + '/client'));
+app.use(express.static(__dirname + '/Client'));
 // app.use(express.static(__dirname + '/node_modules'));
 
 var port = Number(process.env.PORT) || 3000
