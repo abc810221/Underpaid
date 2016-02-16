@@ -23,7 +23,8 @@ angular.module('myApp', ['ngRoute'])
     var obj = {title: input, location: input2}
     $http({
         method: 'POST',
-        url: 'http://127.0.0.1:3000',
+        // url: 'http://127.0.0.1:3000',
+        url: 'https://mvp-demo-ted.herokuapp.com/'
         data: obj
     }).then(function(res){
       $scope.datas = res.data;
@@ -42,7 +43,8 @@ angular.module('myApp', ['ngRoute'])
     var obj = {title: input}
     $http({
         method: 'POST',
-        url: 'http://127.0.0.1:3000',
+        // url: 'http://127.0.0.1:3000',
+        url: 'https://mvp-demo-ted.herokuapp.com/',
         data: obj
     }).then(function(res){
       $scope.data = res.data[0];
