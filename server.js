@@ -37,8 +37,15 @@ app.get('/', function(req, res){
 
 app.post('/', function(req, res){
   var obj = req.body;
-  var server = "https://data.usajobs.gov/api/jobs";
-  request.get("https://data.usajobs.gov/api/jobs?Title="+req.body.title, function (error, response, body) {
+  var server = "https://data.usajobs.gov/api/jobs?";
+  // var location;
+  // if(obj.location!=''){
+  //   location = "&LocationName="+req.body.LocationName 
+  // }else{
+  //   location = ""
+  // }
+  // console.log(server+"Title="+req.body.title+location)
+  request.get(server+"Title="+req.body.title, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var data = JSON.parse(body);
       data = data.JobData;

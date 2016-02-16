@@ -19,16 +19,13 @@ angular.module('myApp', ['ngRoute'])
 
   $scope.datas = {};
 
-  var url = process.env.PORT || 3000;
-
-  $scope.fetch = function(input){
-    var obj = {title: input}
+  $scope.fetch = function(input, input2){
+    var obj = {title: input, location: input2}
     $http({
         method: 'POST',
         url: 'http://127.0.0.1:3000',
         data: obj
     }).then(function(res){
-      console.log(res)
       $scope.datas = res.data;
     })
   };

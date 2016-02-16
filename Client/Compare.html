@@ -16,19 +16,19 @@
 
     <div class="col-md-6">
       <h1>Are you underpaid?</h1>
-      <h3>You are a {{ yourtitle }}<span ng-show="yourtitle">!</span></h3>
-      <h4>Your currently make: ${{ yoursalary }}</h4><br>
+      <h3 ng-show="yoursalary">You are a {{ yourtitle }}<span ng-show="yourtitle">!</span></h3>
+      <h4 ng-show="yoursalary">Your currently make: ${{ yoursalary }}</h4><br>
 
       <h2 ng-show=" yoursalary &&  yoursalary<average" >OMG, YOU ARE UNDER PAID!</h2>
       <h2 ng-show=" yoursalary &&  yoursalary>average && yoursalary<max" >You are above average!</h2>
       <h2 ng-show=" yoursalary && yoursalary>average && yoursalary>max" >You are making more than most people!</h2></br>
 
-        <div id="test">
+        <div id="test" ng-show="yoursalary">
           
             
-              The Average Salary for the same position is: ${{ average }} <br><br>
+              <strong>The Average Salary for the same position is: ${{ average }} <br><br>
               The highest pay is {{ data.SalaryMax }} <br><br>
-              The lowest pay is {{ data.SalaryMin }} <br><br>
+              The lowest pay is {{ data.SalaryMin }} <br><br></strong>
             
           
         </div>
