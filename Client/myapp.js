@@ -16,18 +16,21 @@ angular.module('myApp', ['ngRoute'])
 })
 
 .controller('maincontroller', function($scope, $http){
-
   $scope.datas = {};
 
   $scope.fetch = function(input, input2){
     var obj = {title: input, location: input2}
     $http({
         method: 'POST',
-        // url: 'http://127.0.0.1:3000',
-        url: 'https://mvp-demo-ted.herokuapp.com/',
+        url: 'http://127.0.0.1:3000/jobsearch',
+        //url: 'https://mvp-demo-ted.herokuapp.com/',
         data: obj
     }).then(function(res){
+      console.log(res.data);
       $scope.datas = res.data;
+      for(var i=0; i<$scope.datas.length; i++){
+        $scope.datas[i].howmuch=Number($scope.datas[i].SalaryMax.slice(1).replace(',',''))
+      }
     })
   };
 
@@ -43,8 +46,8 @@ angular.module('myApp', ['ngRoute'])
     var obj = {title: input}
     $http({
         method: 'POST',
-        // url: 'http://127.0.0.1:3000',
-        url: 'https://mvp-demo-ted.herokuapp.com/',
+        url: 'http://127.0.0.1:3000/compare',
+        // url: 'https://mvp-demo-ted.herokuapp.com/',
         data: obj
     }).then(function(res){
       $scope.data = res.data[0];

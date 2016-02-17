@@ -9,19 +9,10 @@ app.use(cors());
 app.use(express.static(__dirname + '/image'));
 app.use(express.static(__dirname + '/Client'));
 
-// app.use(express.static(__dirname + '/node_modules'));
 
 var port = Number(process.env.PORT) || 3000
 
-
 app.listen(port);
-
-var defaultCorsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
-  "access-control-allow-headers": "content-type, accept",
-  "access-control-max-age": 10 // Seconds.
-};
 
 app.use(function(req, res, next){
  res.header('Access-Control-Allow-Origin', '*');
@@ -31,39 +22,24 @@ app.use(function(req, res, next){
 
 app.use(bodyParser.json());
 
-// app.get('/', function(req, res){
-  
-// })
-
-app.post('/', function(req, res){
+app.post('/jobsearch', function(req, res){
   var obj = req.body;
   var server = "https://data.usajobs.gov/api/jobs?";
-  // var location;
-  // if(obj.location!=''){
-  //   location = "&LocationName="+req.body.LocationName 
-  // }else{
-  //   location = ""
-  // }
-  // console.log(server+"Title="+req.body.title+location)
-  request.get(server+"Title="+req.body.title, function (error, response, body) {
+  if(obj.location!=undefined){
+    location = "&LocationName="+req.body.location
+  }else{
+    location = ""
+  }
+  request.get(server+"Title="+req.body.title+location, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var data = JSON.parse(body);
       data = data.JobData;
       res.send(data);
     }
   })
-  // request({
-  //   url: "https://data.usajobs.gov/api/jobs?Title="+req.body.title,
-  //   method: 'GET',
-  //   contentType: 'application/json'
-  // }, function (error, response, body) {
-  //   if (!error && response.statusCode == 200) {
-      // var data = JSON.parse(body);
-    // }
-  // });  
 })
 
-app.post('/', function(req, res){
+app.post('/compare', function(req, res){
   var obj = req.body;
   var server = "https://data.usajobs.gov/api/jobs";
   request.get(server+"?Title="+req.body.title+'&NumberOfJobs=1', function (error, response, body) {

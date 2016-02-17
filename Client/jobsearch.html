@@ -3,7 +3,7 @@
     <div class="userinput">
         <form class='form'>Please type in a job title:
             <input ng-model='input' type="text" id="maininput">
-            <!-- Location: (Optional)<input ng-model='input2' type="text" id="maininput"> -->
+            Location: (Optional)<input ng-model='input2' type="text" id="maininput">
             <button type="submit" ng-click='fetch(input, input2)'>Submit</button>
         </form>
     </div>
@@ -14,11 +14,15 @@
 
   <div class="row">
 
-    <div class="col-md-12">
+    <div class="col-md-2">
+    </div>
+
+    <div class="col-md-8">
       <h2>Job Listings</h2>
         <div id="test">
+
           <ul>
-            <li ng-repeat="data in datas">
+            <li ng-repeat="data in datas | orderBy:'-howmuch'">
             <strong>Job Title: </strong>{{ data.JobTitle }}<br>
             <strong>Location:</strong> {{ data.Locations }}<br>
             <strong>Salary Basis: </strong>{{ data.SalaryBasis }}<br>
@@ -27,4 +31,8 @@
             </li>
           </ul>
         </div>
+    </div>
+
+
+    <div class="col-md-2">
     </div>
