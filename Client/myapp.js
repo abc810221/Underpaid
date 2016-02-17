@@ -22,8 +22,8 @@ angular.module('myApp', ['ngRoute'])
     var obj = {title: input, location: input2}
     $http({
         method: 'POST',
-        url: 'http://127.0.0.1:3000/jobsearch',
-        //url: 'https://mvp-demo-ted.herokuapp.com/',
+        // url: 'http://127.0.0.1:3000/jobsearch',
+        url: 'https://mvp-demo-ted.herokuapp.com/jobsearch',
         data: obj
     }).then(function(res){
       console.log(res.data);
@@ -46,8 +46,8 @@ angular.module('myApp', ['ngRoute'])
     var obj = {title: input}
     $http({
         method: 'POST',
-        url: 'http://127.0.0.1:3000/compare',
-        // url: 'https://mvp-demo-ted.herokuapp.com/',
+        // url: 'http://127.0.0.1:3000/compare',
+        url: 'https://mvp-demo-ted.herokuapp.com/compare',
         data: obj
     }).then(function(res){
       $scope.data = res.data[0];
