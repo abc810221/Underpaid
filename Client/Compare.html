@@ -1,6 +1,6 @@
 <div class="jumbotron">
   <div class="container">
-    <div class="userinput">
+    <div class="compareinput">
         <form class='form'>Please type in your job title:
             <input ng-model='input' type="text" id="usertitle">
             Current Salary: <input ng-model='inputtwo' type="text" id="usersalary">
@@ -14,8 +14,22 @@
 
   <div class="row">
 
-    <div class="col-md-6">
+    <div class="col-md-12">
+
+      <span id="photo" class="col-md-5" ng-show=" yoursalary &&  yoursalary<average">
+       <img src="./image/Under.jpg">
+      </span>
+      <span id="photo2" class="col-md-5" ng-show=" yoursalary &&  yoursalary>average && yoursalary<max">
+       <img src="./image/Average.jpg">
+      </span>
+      <span id="photo3" class="col-md-5" ng-show=" yoursalary && yoursalary>average && yoursalary>max">
+       <img src="./image/Over.jpg">
+      </span>
+
       <h1>Are you underpaid?</h1>
+
+      <h3 ng-show="valid==1">Sorry no results found, please try another title!<span ng-show="yoursalary==1">!</span></h3>
+
       <h3 ng-show="yoursalary">You are a {{ yourtitle }}<span ng-show="yourtitle">!</span></h3>
       <h4 ng-show="yoursalary">Your currently make: ${{ yoursalary }}</h4><br>
 
@@ -24,6 +38,7 @@
 
       <h2 ng-show=" yoursalary &&  yoursalary>average && yoursalary<max" >You are above average!</h2>
       <h2 ng-show=" yoursalary && yoursalary>average && yoursalary>max" >You are making more than most people!</h2></br>
+
 
         <div id="test" ng-show="yoursalary">
           
@@ -36,20 +51,9 @@
         </div>
     </div> 
 
-     <div class="col-md-5" ng-show=" yoursalary &&  yoursalary<average">
-      <img src="./image/Under.jpg">
-     </div>
-     <div class="col-md-5" ng-show=" yoursalary &&  yoursalary>average && yoursalary<max">
-      <img src="./image/Average.jpg">
-     </div>
-     <div class="col-md-5" ng-show=" yoursalary && yoursalary>average && yoursalary>max">
-      <img src="./image/Over.jpg">
-     </div>
 
 
-     <div class="col-md-1">
-     
-     </div>
 
-  </div>
+
+</div>
 

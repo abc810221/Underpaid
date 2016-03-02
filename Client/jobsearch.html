@@ -3,7 +3,7 @@
     <div class="userinput">
         <form class='form'>Please type in a job title:
             <input ng-model='input' type="text" id="maininput">
-            Location: (Optional)<input ng-model='input2' type="text" id="maininput">
+              &nbsp;&nbsp;Location: (Optional)  <input ng-model='input2' type="text" id="maininput">
             <button type="submit" ng-click='fetch(input, input2)'>Submit</button>
         </form>
     </div>
@@ -14,25 +14,22 @@
 
   <div class="row">
 
-    <div class="col-md-2">
-    </div>
 
     <div class="col-md-8">
-      <h2>Job Listings</h2>
+      <h1>Job Listings</h1>
         <div id="test">
 
           <ul>
-            <li ng-repeat="data in datas | orderBy:'-howmuch'">
+            <li class="job" ng-repeat="data in datas | orderBy:'-howmuch'">
             <strong>Job Title: </strong>{{ data.JobTitle }}<br>
             <strong>Location:</strong> {{ data.Locations }}<br>
             <strong>Salary Basis: </strong>{{ data.SalaryBasis }}<br>
             <strong>Highest Salary: </strong>{{ data.SalaryMax }}<br> 
-            <strong>Lowest Salary: </strong>{{ data.SalaryMin }}<br><br>
+            <strong>Lowest Salary: </strong>{{ data.SalaryMin }}<br>
+            <strong>Apply Online: </strong><a target="_blank" href="{{ data.ApplyOnlineURL }}">Click Here</a><br><br>
             </li>
           </ul>
         </div>
     </div>
-
-
-    <div class="col-md-2">
-    </div>
+  </div>
+</div>

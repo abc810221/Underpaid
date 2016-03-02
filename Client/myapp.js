@@ -43,6 +43,7 @@ angular.module('myApp', ['ngRoute'])
   $scope.fetchone = function(input, inputtwo){
     $scope.yoursalary = inputtwo;
     $scope.yourtitle = input;
+    $scope.valid = 0;
     var obj = {title: input}
     $http({
         method: 'POST',
@@ -51,9 +52,15 @@ angular.module('myApp', ['ngRoute'])
         data: obj
     }).then(function(res){
       $scope.data = res.data[0];
-      $scope.max = Number($scope.data.SalaryMax.slice(1).replace(',',''))
-      $scope.min = Number($scope.data.SalaryMin.slice(1).replace(',',''))
-      $scope.average = ($scope.max+$scope.min)/2;  
+      if($scope.data == undefined){
+        $scope.valid = 1;
+        $scope.yoursalary = null
+      }else{
+        $scope.valid = 0;
+        $scope.max = Number($scope.data.SalaryMax.slice(1).replace(',',''))
+        $scope.min = Number($scope.data.SalaryMin.slice(1).replace(',',''))
+        $scope.average = ($scope.max+$scope.min)/2; 
+      } 
     })
   };
 })
