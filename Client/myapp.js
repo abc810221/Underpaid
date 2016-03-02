@@ -4,19 +4,21 @@ angular.module('myApp', ['ngRoute'])
   $routeProvider
     .when('/compare', {
       templateUrl: './Compare.html',
-      controller: 'secondcontroller'
+      controller: 'secondcontroller',
     })
     .when('/jobsearch',{
       templateUrl:'./jobsearch.html',
-      controller: 'maincontroller'
+      controller: 'maincontroller',
     })
     .otherwise({
-        redirectTo: '/compare'
+        redirectTo: '/compare',
     });
 })
 
+
 .controller('maincontroller', function($scope, $http){
   $scope.datas = {};
+  $scope.found = 0;
 
   $scope.fetch = function(input, input2){
     var obj = {title: input, location: input2}
@@ -26,9 +28,13 @@ angular.module('myApp', ['ngRoute'])
         url: 'https://mvp-demo-ted.herokuapp.com/jobsearch',
         data: obj
     }).then(function(res){
-      console.log(res.data);
       $scope.datas = res.data;
+      if($scope.datas.length==0){
+        $scope.found = 1;
+        return;
+      }
       for(var i=0; i<$scope.datas.length; i++){
+        $scope.found = 0;
         $scope.datas[i].howmuch=Number($scope.datas[i].SalaryMax.slice(1).replace(',',''))
       }
     })

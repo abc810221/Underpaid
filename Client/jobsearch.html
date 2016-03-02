@@ -17,7 +17,8 @@
 
     <div class="col-md-8">
       <h1>Job Listings</h1>
-        <div id="test">
+
+        <h3 ng-show="found==1">Sorry no results found, please try another job title/location!<span ng-show="yoursalary==1">!</span></h3>
 
           <ul>
             <li class="job" ng-repeat="data in datas | orderBy:'-howmuch'">
@@ -29,7 +30,7 @@
             <strong>Apply Online: </strong><a target="_blank" href="{{ data.ApplyOnlineURL }}">Click Here</a><br><br>
             </li>
           </ul>
-        </div>
+
     </div>
   </div>
 </div>
